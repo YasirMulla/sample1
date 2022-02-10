@@ -1,0 +1,10 @@
+.maincontent {
+  background-size: cover;
+  background-position: center;
+  min-height: 1000px;
+}
+
+app-footer {
+  position: fixed;
+  bottom: 0px;
+}

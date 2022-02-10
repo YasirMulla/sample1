@@ -1,0 +1,160 @@
+<div class="row" id="registerForm">
+    <div class="col-lg-6 col-sm-10 m-auto">
+        <div class="card m-auto">
+            <div class="card-header">
+                <h5>Register</h5>
+            </div>
+            <div class="card-body">
+                <!-- <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()"> -->
+                     <form #login="ngForm" (ngSubmit)="loginuser()">
+                    <div class="form-group col-12">
+                        <label for="fname" 
+                        class="form-label">First Name</label>
+                        <input type="text"
+          class="form-control"
+           placeholder="First name"
+           name="fname"
+           required
+           minlength="3"
+           [(ngModel)]="user.fname"
+           #fname="ngModel"
+           [class.is-invalid]="fname.invalid && fname.touched"
+           >
+           <span class="help-block" *ngIf="!fname.valid &&(fname.dirty || fname.touched)"> Please enter valid name
+                </span>
+                        <!-- formControlName="fname"> -->
+                        <!-- Check if name is present as per validator -->
+                        <!-- <span *ngIf="!registrationForm.get('fname').valid && (registrationForm.get('fname').touched || userSubmitted)"
+                            class="error-block">
+                            Please enter a first name
+                        </span> -->
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label for="sname" class="form-label">Surname</label>
+                      
+                        <input type="text"
+                        class="form-control"
+                         placeholder="First name"
+                         name="lname"
+                         required
+                         minlength="3"
+                         [(ngModel)]="user.lname"
+                         #lname="ngModel"
+                         [class.is-invalid]="lname.invalid && lname.touched"
+                         >
+                         <span class="help-block" *ngIf="!lname.valid &&(lname.dirty || lname.touched)"> Please enter valid name
+                              </span>
+                        <!-- <input type="text" class="form-control" > -->
+                        <!-- formControlName="sname"> -->
+                        <!-- Check if name is present as per validator -->
+                        <!-- <span *ngIf="!registrationForm.get('sname').valid && (registrationForm.get('sname').touched || userSubmitted)"
+                            class="error-block">
+                            Please enter a surname
+                        </span> -->
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label for="email" class="form-label">Email</label>
+
+                        <input type="email" 
+                        id="defaultRegisterFormEmail"
+                         class="form-control mb-4"
+                          placeholder="E-mail"
+                          ngModel
+                          name="emailId"
+                          required
+                        email
+                          #emailId="ngModel"
+                          required minlength="5"
+                          [class.is-invalid]="emailId.invalid && emailId.touched">
+                          <span class="help-block" *ngIf="!emailId.valid &&(emailId.dirty || emailId.touched)"> Please enter a valid email
+                              </span>
+
+
+                        <!-- <input type="text" class="form-control"> -->
+                         <!-- formControlName="email"> -->
+                        <!-- Check if email is valid as per validator -->
+                        <!-- <span *ngIf="!registrationForm.get('email').valid && (registrationForm.get('email').touched || userSubmitted)"
+                            class="error-block">
+                            Please enter a valid email
+                        </span> -->
+                    </div>
+                    <div>
+                    <div class="form-group col-5" style="float: left;">
+                        <label for="password" class="form-label">Password</label>
+                        
+                        <input type="password"
+                        class="form-control"
+                         placeholder="Enter password" 
+                         name="password"
+                         [(ngModel)]="user.password"
+                           name="password"
+                           required
+                           #password="ngModel"
+                           [class.is-invalid]="password.invalid && password.touched"
+                           >
+                           <span class="help-block" *ngIf="!password.valid &&(password.dirty || password.touched)"> Please enter a valid password
+                                </span>
+                        
+                        
+                        <!-- <input type="password" class="form-control" > -->
+                        
+                        <!-- formControlName="password"> -->
+                        <!-- Check if password is valid as per validator -->
+                        <!-- <span
+                            *ngIf="!registrationForm.get('password').valid && (registrationForm.get('password').touched || userSubmitted)"
+                            class="error-block">
+                            <span *ngIf="registrationForm.get('password').errors['required']">
+                                Please provide a password
+                            </span>
+                            <span *ngIf="registrationForm.get('password')?.errors?.['minlength']" class="error-block">
+                                Password should not be less than 8 characters
+                            </span> -->
+                        <!-- </span> -->
+                    </div>
+
+                    <div class="form-group col-5" style="float: right;">
+                        <label for="cpassword" class="form-label">Confirm Password</label>
+                       
+                        <input type="password" 
+    id="defaultRegisterFormPassword"
+     class="form-control"
+      placeholder="Confirm Password"
+       aria-describedby="defaultRegisterFormPasswordHelpBlock"
+     (ngModel)="user.password"
+       name="cpassword"
+       required
+       #cpassword="ngModel"  [class.is-invalid]="password.invalid && password.touched"
+       >
+       <small class="text-danger" [class.d-none]="(cpassword.value == password.value) ||cpassword.untouched">
+       please enter correct password here</small>
+                       
+                        <!-- <input type="password" class="form-control" > -->
+                        <!-- formControlName="cpassword"> -->
+                        <!-- Check if confirm password is valid and matches password as per validator -->
+                        <!-- <span
+                            *ngIf="!registrationForm.get('cpassword').valid && (registrationForm.get('cpassword').touched || userSubmitted)">
+                            <span *ngIf="registrationForm.get('cpassword').hasError('required')" class="error-block">
+                            Please confirm password
+                            </span> -->
+                        <!-- </span>
+                        <span
+                            *ngIf="registrationForm.hasError('notSame') && registrationForm.get('cpassword').valid" class="error-block">
+                            Passwords do not match
+                        </span> -->
+                    </div>
+                </div>
+
+                    <div class="form-group col-12" id="buttons" style="clear: both;">
+                        <button type="submit" 
+                        class="btn btn-primary"
+                        [disabled]="!login.valid"
+                        >Submit</button>
+                        <button type="reset" class="btn btn-secondary ml-2">Clear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+#login-welcome {
+  padding: 50px;
+}
+
+.loginarea {
+  background: rgba(0, 0, 0, 0.8);
+  padding-bottom: 100px;
+  border-radius: 10px;
+  padding-top: 60px;
+}
+
+#loginbutton {
+  color: rgb(228, 228, 228);
+  background-color: maroon;
+  width: 100%;
+}
+
+.form_container {
+  justify-content: center;
+}
+
+.input-group {
+  width: 100%;
+}

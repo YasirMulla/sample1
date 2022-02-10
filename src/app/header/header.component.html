@@ -1,0 +1,39 @@
+<div class="col-xl-12">
+    <nav class="navbar navbar-expand-lg navbar-dark mb-3">
+        <a class="navbar-brand" href="#"><img src="/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Team 2 Cinema</a>
+        <button class="navbar-toggler" type="button" (click)="navBarCollapsed = !navBarCollapsed">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content: right;" [ngbCollapse]="navBarCollapsed">
+          <ul class="navbar-nav mr-auto" style="display: flex;">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/films" routerLinkActive="active">Now Showing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+              </li>
+            <li class="nav-item" *ngIf="!loggedIn()">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active">Login/Register</a>
+            </li>
+            <li class="nav-item" *ngIf="loggedIn()">
+              <a class="nav-link" href="/dashboard" routerLinkActive="active">Dashboard</a>
+            </li>
+    
+            <li class="nav-item dropdown" *ngIf="loggedIn()">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
+              </a>
+              <div class="dropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item menu-item" href="#" (click)="onLogout()">Logout</a>
+                <a class="dropdown-item menu-item" routerLink="/bookings">View Bookings</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      </div>
+    

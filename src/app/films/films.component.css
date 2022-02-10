@@ -1,0 +1,37 @@
+hr {
+  height: 1px;
+  background-color: #ccc;
+  border: none;
+}
+.visually-hidden {
+  display: none;
+}
+
+.carousel-item {
+  overflow: hidden;
+}
+
+.carousel {
+  max-width: 80%;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.container-fluid {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.btn {
+  background-color: maroon;
+}
+
+.movie-thumbnail{
+  height: 250px;
+
+}

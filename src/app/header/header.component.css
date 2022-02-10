@@ -1,0 +1,38 @@
+/*For smaller devices*/
+.navbar-brand {
+  padding-left: 15px;
+}
+.nav-item {
+  padding-left: 15px;
+}
+
+.navbar-toggler {
+  margin-right: 15px;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/*For desktops*/
+@media (min-width: 992px) {
+  .navbar-brand {
+    padding-left: 100px;
+  }
+
+  .navbar-nav {
+    padding-right: 100px;
+  }
+
+  .nav-item {
+    padding-left: 50px;
+  }
+}
+
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.menu-item {
+  color: white;
+}

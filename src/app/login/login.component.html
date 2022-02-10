@@ -1,0 +1,83 @@
+<div class="container-fluid" id="login-welcome">
+  <div class="row">
+    <div class="col-lg-5">
+      <h1>A world of cinema awaits...</h1>
+      <br>
+      <h5>
+        Discover a new way to enjoy the latest movies. Here at Team 2 Cinema we bring you the best cinema experience
+        using innovating and cutting edge technologies. With a wide range of films and VIP treatment for all, you'll
+        wish you had experienced our service sooner.
+      </h5>
+      <br>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, corrupti labore suscipit repellat,
+        inventore distinctio nulla delectus recusandae natus accusantium perspiciatis molestiae modi consequatur
+        reprehenderit repellendus, dolores officiis aliquam officia? Lorem ipsum dolor sit, amet consectetur adipisicing
+        elit. Eum voluptatum sequi possimus vero impedit nulla voluptas in doloribus mollitia, vitae dicta earum. Quae
+        iure eaque praesentium labore architecto, ea ab.
+      <p>
+    </div>
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-5 loginarea">
+      <div class="form-area">
+        <div class="container-fluid form_container">
+          <form #login='ngForm' (ngSubmit)="loginUser()">
+            <small class="txt-danger">{{msg}} </small>
+            <div class="input-group mb-3">
+             
+              <input type="email" class="form-control border -1" 
+         placeholder="Enter email"
+          name="emailId" [(ngModel)]="user.emailId"
+        name="emailId"
+        required
+       
+        #emailId="ngModel"
+        required minlength="5"
+        [class.is-invalid]="emailId.invalid && emailId.touched">
+        <!-- <br>
+      <small class="help-block" *ngIf="!emailId.valid &&(emailId.dirty || emailId.touched)"> Please enter a valid email
+          </small> -->
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" 
+              class="form-control border-1" 
+              placeholder="Enter password"
+               name="password"
+                [(ngModel)]="user.password"
+        name="password"
+        required
+        #password="ngModel"
+        [class.is-invalid]="password.invalid && password.touched">
+        <!-- <br>
+        <small class="help-block" *ngIf="!password.valid &&(password.dirty || password.touched)"> Please enter a valid password
+             </small> -->
+            </div>
+            <div><a href="#">Forgot your password?</a></div>
+            <div class="d-flex justify-content-center mt-3">
+              <button 
+              class="btn btn-block"
+               type="submit"
+                id="loginbutton" 
+                 routerLink="/contact"
+                  routerLinkActive="active"
+                  [disabled]="!login.valid">Login</button>
+            </div>
+          </form>
+        </div>
+        <div>
+          <div style="margin: 20px;">
+            <div style="float: left;">
+              <h6>
+                Don't have an account?
+              </h6>
+            </div>
+            <div style="float: right;">
+              <a routerLink="/register">Sign Up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

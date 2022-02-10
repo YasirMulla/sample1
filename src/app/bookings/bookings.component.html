@@ -1,0 +1,57 @@
+<div style="text-align: center;">
+    <h1>NOW BOOKING</h1>
+</div>
+<div
+  class="container-fluid w-65 mt-5"
+  *ngIf="movie == undefined; else elseBlock"
+>
+  <h1 class="alert alert-danger text-center" role="alert">
+    Movie does not exist.
+  </h1>
+</div>
+<ng-template #elseBlock>
+    <div class="container-fluid w-65 mt-3 col-lg-10 col-sm-12 col-xl-10">
+      <div class="card flex-row flex-wrap bg-dark text-white">
+        <div class="card-header border-0">
+          <img src="/assets/images/thumbnail/{{movie.slug}}.jpg" alt="" />
+        </div>
+        <div class="card-block px-3 mt-3" style="width: 70%;">
+          <h4 class="card-title">{{ movie.movieName }}</h4>
+          <h6 class="card-text">{{ movie.description }}</h6>
+          <hr />
+          <p class="card-text">Starring: {{ movie.starring.join(", ") }}</p>
+          <p class="card-text">Running time: {{ movie.runTime }}</p>
+          <hr />
+          <p class="card-text">Date: {{date}}</p>
+          <p class="card-text">Time: {{time}}</p>
+          <hr />
+          <div class="d-flex justify-content-between">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-dark text-white" for="numberOfTickets">Number of tickets:</label>
+                </div>
+                <select class="custom-select bg-dark text-white" [(ngModel)]="numberOfTickets">
+                <option [value]="item.id" *ngFor="let item of items">{{item.name}}</option>
+                 </select>
+              </div>
+              <a
+              class="btn btn-primary"
+              routerLink="/bookings/success/{{bookingString}}"
+              routerLinkActive="active"
+              style="width: 300px;" (mousedown)="generateBooking()"
+              >
+              Confirm Reservation
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</ng-template>
+
+<!--ngfor
+
+<li *ngFor="let item of myMap | keyvalue">
+              {{item | json}}
+              Object Key:{{item.key}} and Object Value:{{item.value}}
+          </li>
+-->
