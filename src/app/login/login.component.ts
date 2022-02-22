@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { RegistrationService } from '../services/registration.service';
 import { User } from '../services/user';
+import { loggedInStatus } from 'src/loggedInStatus';
 
 @Component({
   selector: 'app-login',
@@ -12,20 +13,23 @@ import { User } from '../services/user';
 })
 export class LoginComponent implements OnInit {
 
+  //created useer obj here 
   user = new User();
   msg=' ';
-  constructor(private _service: RegistrationService, private _route :Router ) { }
+  constructor(private service: RegistrationService, private route :Router ) { }
 
  
 loginUser()
 {
- this._service.loginUserFronRemote(this.user).subscribe(
+ this.service.loginUserFronRemote(this.user).subscribe(
    data =>{ console.log("response received");
-   this._route.navigate(['/register'])
-  
+   alert('Login Success');
+   loggedInStatus.loggedIn = true;
+   this.route.navigate(['/films'])
   },
-   error => {console.log("invalid login credential");
- this.msg="Bad cedentials enter valid email id and password";
+   error => {
+     console.log("invalid login credential");
+ this.msg="Bad credentials enter valid email id and password";
   }
  )
 

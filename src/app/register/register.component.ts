@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
 
         data =>{
           console.log("responce received");
+          alert('register Success');
           this.router.navigate(['/login'])
         },
         error => {
@@ -34,6 +35,12 @@ export class RegisterComponent implements OnInit {
    
 
   }
+
+  printInfo(){
+    console.log("Testing")
+    console.log(this.user);
+  }
+
   ngOnInit(): void {
 
   }

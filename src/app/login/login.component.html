@@ -23,32 +23,33 @@
       <div class="form-area">
         <div class="container-fluid form_container">
           <form #login='ngForm' (ngSubmit)="loginUser()">
-            <small class="txt-danger">{{msg}} </small>
+            <small class="text-white">{{msg}} </small>
             <div class="input-group mb-3">
              
               <input type="email" class="form-control border -1" 
          placeholder="Enter email"
-          name="emailId" [(ngModel)]="user.emailId"
-        name="emailId"
+          name="email"
+           [(ngModel)]="user.email"
+        name="email"
         required
-       
-        #emailId="ngModel"
+       email
+        #email="ngModel"
         required minlength="5"
-        [class.is-invalid]="emailId.invalid && emailId.touched">
+        [class.is-invalid]="email.invalid && email.touched">
         <!-- <br>
-      <small class="help-block" *ngIf="!emailId.valid &&(emailId.dirty || emailId.touched)"> Please enter a valid email
+      <small class="help-block" *ngIf="!email.valid &&(email.dirty || email.touched)"> Please enter a valid email
           </small> -->
             </div>
             <div class="input-group mb-3">
               <input type="password" 
               class="form-control border-1" 
-              placeholder="Enter password"
+                placeholder="Enter password"
                name="password"
                 [(ngModel)]="user.password"
-        name="password"
-        required
-        #password="ngModel"
-        [class.is-invalid]="password.invalid && password.touched">
+                name="password"
+                required
+                #password="ngModel"
+                 [class.is-invalid]="password.invalid && password.touched">
         <!-- <br>
         <small class="help-block" *ngIf="!password.valid &&(password.dirty || password.touched)"> Please enter a valid password
              </small> -->
@@ -59,8 +60,7 @@
               class="btn btn-block"
                type="submit"
                 id="loginbutton" 
-                 routerLink="/contact"
-                  routerLinkActive="active"
+               
                   [disabled]="!login.valid">Login</button>
             </div>
           </form>

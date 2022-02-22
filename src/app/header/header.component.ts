@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { loggedInStatus } from 'src/loggedInStatus';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   loggedIn() {
-    return localStorage.getItem('token');
+    return loggedInStatus.loggedIn;
   }
 
   onLogout() {
